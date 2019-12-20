@@ -1,4 +1,4 @@
-package one_thread;
+package one;
 
 public class Numbers implements Runnable {
 

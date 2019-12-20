@@ -1,4 +1,4 @@
-package one_thread;
+package one;
 
 public class MainThread {
     public static void main(String[] args) {
