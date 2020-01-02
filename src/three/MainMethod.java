@@ -9,11 +9,21 @@ public class MainMethod {
             new Thread(new TextPrinter("Thread number: " + i)).start();
         }*/
 
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
+        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(5);
+        ExecutorService newSingleThreadPool = Executors.newSingleThreadExecutor();
 
         for(int i=1; i<=5; i++)
-            executorService.execute(new TextPrinter("Text number " + i));
+            newCachedThreadPool.execute(new TextPrinter("newCachedThreadPool: " + i));
 
-        executorService.shutdown();
+        for(int i=1; i<=5; i++)
+            newFixedThreadPool.execute(new TextPrinter("newFixedThreadPool: " + i));
+
+        for(int i=1; i<=5; i++)
+            newSingleThreadPool.execute(new TextPrinter("newSingleThreadPool: " + i));
+
+        newCachedThreadPool.shutdown();
+        newFixedThreadPool.shutdown();
+        newSingleThreadPool.shutdown();
     }
 }
