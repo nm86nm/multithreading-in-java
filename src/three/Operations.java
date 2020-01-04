@@ -1,4 +1,4 @@
-package calculator;
+package three;
 
 public class Operations implements Runnable {
 
